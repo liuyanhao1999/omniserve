@@ -1,0 +1,14 @@
+外网面板地址: http://43.138.110.100:8888/tencentcloud
+内网面板地址: http://10.2.16.17:8888/tencentcloud
+username: eef9bd1d
+password: d5e289d3c456
+
+
+项目信息：
+
+  项目执行文件：/www/wwwroot/elegance-gateway/elegance-gateway
+  项目端口：8080
+  执行命令：/www/wwwroot/elegance-gateway/elegance-gateway
+
+域名管理：
+  43.138.110.100：80
