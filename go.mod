@@ -1,4 +1,4 @@
-module elegance-gateway
+module omniserve
 
 go 1.21
 
