@@ -1,0 +1,30 @@
+version: '3.8'
+
+services:
+  # 第一个服务：你的 Go 应用程序
+  elegance-gateway:
+    # Docker Compose 会查找当前目录下的 Dockerfile 来构建镜像
+    build: .
+    # 指定容器名称
+    container_name: elegance-gateway
+    # 重启策略，如果容器因任何原因退出，就自动重启
+    restart: always
+
+  # 第二个服务：Nginx 代理服务器
+  nginx:
+    # 使用官方的 Nginx 镜像
+    image: nginx:latest
+    # 指定容器名称
+    container_name: nginx-proxy
+    # 端口映射：将服务器的 80 端口映射到 Nginx 容器的 80 端口
+    # 这样外部用户就可以通过服务器的 80 端口访问你的服务了
+    ports:
+      - "80:80"
+    # 将你本地的 nginx.conf 文件挂载到 Nginx 容器中，作为其配置文件
+    volumes:
+      - ./nginx.conf:/etc/nginx/nginx.conf:ro
+    # 重启策略
+    restart: always
+    # 确保 nginx 容器在 elegance-gateway 容器启动之后才启动
+    depends_on:
+      - elegance-gateway
