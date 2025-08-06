@@ -1,5 +1,3 @@
-version: '3.8'
-
 services:
   # 第一个服务：你的 Go 应用程序
   omniserve:
