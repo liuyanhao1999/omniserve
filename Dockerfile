@@ -8,6 +8,9 @@ WORKDIR /app
 # 将本地项目的代码复制到容器中
 COPY . .
 
+# 用国内镜像，构建不会卡在下载模块上
+RUN go env -w GOPROXY=https://goproxy.cn,direct
+
 # 下载 Go 模块依赖，这一步可以缓存
 RUN go mod download
 
