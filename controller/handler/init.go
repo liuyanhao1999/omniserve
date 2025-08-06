@@ -1,7 +1,7 @@
 package handler
 
 import (
-	"elegance-gateway/service/handler"
+	"omniserve/service/handler"
 )
 
 func InitHandler() {

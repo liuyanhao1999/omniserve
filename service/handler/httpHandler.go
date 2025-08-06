@@ -1,7 +1,7 @@
 package handler
 
 import (
-	http2 "elegance-gateway/service/http"
+	http2 "omniserve/service/http"
 )
 
 func RunHttp() {
