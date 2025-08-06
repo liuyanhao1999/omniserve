@@ -1,6 +1,8 @@
 package main
 
+import "omniserve/controller/handler"
+
 func main() {
-	//handler.InitHandler()
-	println(1)
+	handler.InitHandler()
+
 }
