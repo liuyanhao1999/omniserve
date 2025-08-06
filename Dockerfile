@@ -15,7 +15,7 @@ RUN go mod download
 # -o 参数指定了输出文件名
 # CGO_ENABLED=0 是为了创建静态链接的可执行文件，这样就不依赖于系统库
 # -a -installsuffix cgo 也是为了减小体积
-RUN CGO_ENABLED=0 GOOS=linux go build -a -installsuffix cgo -o elegance-gateway .
+RUN CGO_ENABLED=0 GOOS=linux go build -a -installsuffix cgo -o omniserve .
 
 # --- 第二个运行阶段：使用一个非常小的基础镜像来运行程序 ---
 # alpine 是一个非常轻量级的 Linux 发行版，非常适合作为基础镜像
@@ -28,7 +28,7 @@ WORKDIR /root/
 EXPOSE 8080
 
 # 复制第一阶段构建好的可执行文件
-COPY --from=builder /app/elegance-gateway .
+COPY --from=builder /app/omniserve .
 
 # 启动你的程序
-CMD ["./elegance-gateway"]
+CMD ["./omniserve"]

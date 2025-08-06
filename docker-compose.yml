@@ -2,11 +2,11 @@ version: '3.8'
 
 services:
   # 第一个服务：你的 Go 应用程序
-  elegance-gateway:
+  omniserve:
     # Docker Compose 会查找当前目录下的 Dockerfile 来构建镜像
     build: .
     # 指定容器名称
-    container_name: elegance-gateway
+    container_name: omniserve
     # 重启策略，如果容器因任何原因退出，就自动重启
     restart: always
 
@@ -27,4 +27,4 @@ services:
     restart: always
     # 确保 nginx 容器在 elegance-gateway 容器启动之后才启动
     depends_on:
-      - elegance-gateway
+      - omniserve
